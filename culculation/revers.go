@@ -1,4 +1,5 @@
-//package culculation
+package culculation
+
 //
 //func GetReverseOrder(a int) []int {
 //	var k []int

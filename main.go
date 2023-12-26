@@ -49,8 +49,8 @@ func main() {
 }
 
 // Функция на замемену статуса выбранной таски
-func changeStatus(id int) {
-	TasksMassive[id].Completed = true
+//func changeStatus(id int) {
+//	TasksMassive[id].Completed = true
 }
 
 // Функция вывод информации о выбранной таски
@@ -66,14 +66,14 @@ func ALLtaskInfomation() {
 }
 
 // Удаление из массива TasksMassive таски, чей uuid указан
-func deleteTask(id uuid.UUID) {
-	for i, task := range TasksMassive {
-		if task.ID == id {
-			TasksMassive = append(TasksMassive[:i], TasksMassive[i+1:]...)
-			break
-		}
-	}
-}
+//func deleteTask(id uuid.UUID) {
+//	for i, task := range TasksMassive {
+//		if task.ID == id {
+//			TasksMassive = append(TasksMassive[:i], TasksMassive[i+1:]...)
+//			break
+//		}
+//	}
+//}
 
 //func main() {
 //

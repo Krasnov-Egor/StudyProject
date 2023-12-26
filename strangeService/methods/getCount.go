@@ -1,9 +1,9 @@
 package methods
 
-import (
-	"fmt"
-	"github.com/google/uuid"
-)
+//import (
+//	"fmt"
+//	"github.com/google/uuid"
+//)
 
 //
 //import (
@@ -25,35 +25,3 @@ import (
 //
 //	http.ListenAndServe(":8080", r)
 //}
-
-var Tasks []Task
-
-type Task struct {
-	ID        uuid.UUID
-	Desc      string
-	Completed bool
-}
-
-func newTask(desc string) int {
-	task := Task{
-		ID:        uuid.New(),
-		Desc:      desc,
-		Completed: false,
-	}
-
-	Tasks = append(Tasks, task)
-
-	return len(Tasks) - 1
-}
-
-func main() {
-	id := newTask("ПП работает фигово")
-	fmt.Println(Tasks[id])
-
-	changeStatus(id)
-	fmt.Println(Tasks[id])
-}
-
-func changeStatus(id int) {
-	Tasks[id].Completed = true
-}
