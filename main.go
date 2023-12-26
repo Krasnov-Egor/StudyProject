@@ -8,7 +8,7 @@ import (
 	"StudyProject/TaskManager/model"
 )
 
-// TasksMassive Создали типа хранилище (в виде массива) под таски
+// TasksMassive создали хранилище (в виде массива) под таски
 var TasksMassive []model.Task
 
 // Создаём новую таску
@@ -27,30 +27,32 @@ func newTask(desc string) int {
 }
 
 func main() {
+	// Накидали новых таск
+	newTask("Kazhetsya, moi status izmenitsya")
+	newTask("Kazhetsya, menya udalyat")
 	newTask("Chto proishodit")
-	newTask("Chto za uzhas tut tvoritsya")
-	newTask("Prosto za chto")
 
-	//id := newTask("ПП работает фигово")
-	//fmt.Println(TasksMassive[id])
-	//fmt.Println(TasksMassive)
+	// Вывели все таски
+	fmt.Println("Список таск:")
 	ALLtaskInfomation()
-	fmt.Println("просто текст для прерывания потока данных")
-	fmt.Println("просто текст для прерывания потока данных")
-	fmt.Println("просто текст для прерывания потока данных")
-	//changeStatus(id)
-	////fmt.Println(TasksMassive)
-	//
-	//taskInfomation(id)
-	//
+	fmt.Println("")
+
+	// Вывели список тасок после изменения статуса одной из них
+	fmt.Println("Список таск после изменений статуса:")
+	changeStatus(0)
+	ALLtaskInfomation()
+	fmt.Println("")
+
+	// Вывели список тасок после удаления одной из них
+	fmt.Println("Список таск после удаления:")
 	deleteTask(TasksMassive[1].ID)
 	ALLtaskInfomation()
 }
 
-// Функция на замемену статуса выбранной таски
-//func changeStatus(id int) {
-//	TasksMassive[id].Completed = true
-//}
+// Функция по замене статуса выбранной таски
+func changeStatus(id int) {
+	TasksMassive[id].Completed = true
+}
 
 // Функция вывод информации о выбранной таски
 func taskInfomation(id int) {
@@ -58,7 +60,7 @@ func taskInfomation(id int) {
 
 }
 
-// ALLtaskInfomation Функция вывод информации о всех тасках
+// ALLtaskInfomation функция вывода информации обо всех тасках
 func ALLtaskInfomation() {
 	for i := range TasksMassive {
 		taskInfomation(i)
@@ -74,18 +76,3 @@ func deleteTask(id uuid.UUID) {
 		}
 	}
 }
-
-//func main() {
-//
-//	//y := culculation.GetMaxNumber(123456789)
-//	//fmt.Println(y)
-//
-//	//x := culculation.GetReverseOrder(123)
-//	//fmt.Println(x)
-//
-//	//z := culculation.RemoveTheNumber(1234567, 3)
-//	//fmt.Println(z)
-//	//fmt.Println(len(z))
-//
-//	strangeService.Start()
-//}
