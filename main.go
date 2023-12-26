@@ -2,23 +2,19 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/google/uuid"
+
+	"StudyProject/TaskManager/model"
 )
 
-// Структура для представления задачи
-type Task struct {
-	ID        uuid.UUID
-	Desc      string
-	Completed bool
-}
-
-// Создали типа хранилище (в виде массива) под таски
-var TasksMassive []Task
+// TasksMassive Создали типа хранилище (в виде массива) под таски
+var TasksMassive []model.Task
 
 // Создаём новую таску
 func newTask(desc string) int {
 	// Создаём новый объект task типа "Task"
-	task := Task{
+	task := model.Task{
 		ID:        uuid.New(),
 		Desc:      desc,
 		Completed: false,
@@ -62,7 +58,7 @@ func taskInfomation(id int) {
 
 }
 
-// Функция вывод информации о всех тасках
+// ALLtaskInfomation Функция вывод информации о всех тасках
 func ALLtaskInfomation() {
 	for i := range TasksMassive {
 		taskInfomation(i)
