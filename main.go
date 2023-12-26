@@ -8,24 +8,6 @@ import (
 	"StudyProject/TaskManager/model"
 )
 
-// TasksMassive создали хранилище (в виде массива) под таски
-var TasksMassive []model.Task
-
-// Создаём новую таску
-func newTask(desc string) int {
-	// Создаём новый объект task типа "Task"
-	task := model.Task{
-		ID:        uuid.New(),
-		Desc:      desc,
-		Completed: false,
-	}
-	// Добавляем созданную таску в массив таск TasksMassive
-	TasksMassive = append(TasksMassive, task)
-
-	// Возвращаем ID созданной таски, в виде её порядкового номера в массиве TasksMassive
-	return len(TasksMassive) - 1
-}
-
 func main() {
 	// Накидали новых таск
 	newTask("Kazhetsya, moi status izmenitsya")
@@ -49,15 +31,22 @@ func main() {
 	ALLtaskInfomation()
 }
 
-// Функция по замене статуса выбранной таски
-func changeStatus(id int) {
-	TasksMassive[id].Completed = true
-}
+// TasksMassive создали хранилище (в виде массива) под таски
+var TasksMassive []model.Task
 
-// Функция вывод информации о выбранной таски
-func taskInfomation(id int) {
-	fmt.Printf("ID: %s, Desc: %s, Completed: %t\n", TasksMassive[id].ID, TasksMassive[id].Desc, TasksMassive[id].Completed)
+// Создаём новую таску
+func newTask(desc string) int {
+	// Создаём новый объект task типа "Task"
+	task := model.Task{
+		ID:        uuid.New(),
+		Desc:      desc,
+		Completed: false,
+	}
+	// Добавляем созданную таску в массив таск TasksMassive
+	TasksMassive = append(TasksMassive, task)
 
+	// Возвращаем ID созданной таски, в виде её порядкового номера в массиве TasksMassive
+	return len(TasksMassive) - 1
 }
 
 // ALLtaskInfomation функция вывода информации обо всех тасках
@@ -65,6 +54,16 @@ func ALLtaskInfomation() {
 	for i := range TasksMassive {
 		taskInfomation(i)
 	}
+}
+
+// Функция вывод информации о выбранной таски
+func taskInfomation(id int) {
+	fmt.Printf("ID: %s, Desc: %s, Completed: %t\n", TasksMassive[id].ID, TasksMassive[id].Desc, TasksMassive[id].Completed)
+}
+
+// Функция по замене статуса выбранной таски
+func changeStatus(id int) {
+	TasksMassive[id].Completed = true
 }
 
 // Удаление из массива TasksMassive таски, чей uuid указан
