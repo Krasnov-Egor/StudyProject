@@ -51,7 +51,7 @@ func main() {
 // Функция на замемену статуса выбранной таски
 //func changeStatus(id int) {
 //	TasksMassive[id].Completed = true
-}
+//}
 
 // Функция вывод информации о выбранной таски
 func taskInfomation(id int) {
