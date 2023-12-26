@@ -39,13 +39,16 @@ func main() {
 	//fmt.Println(TasksMassive[id])
 	//fmt.Println(TasksMassive)
 	ALLtaskInfomation()
+	fmt.Println("просто текст для прерывания потока данных")
+	fmt.Println("просто текст для прерывания потока данных")
+	fmt.Println("просто текст для прерывания потока данных")
 	//changeStatus(id)
 	////fmt.Println(TasksMassive)
 	//
 	//taskInfomation(id)
 	//
-	//deleteTask(TasksMassive[id].ID)
-	//fmt.Println(TasksMassive)
+	deleteTask(TasksMassive[1].ID)
+	ALLtaskInfomation()
 }
 
 // Функция на замемену статуса выбранной таски
@@ -55,10 +58,11 @@ func main() {
 
 // Функция вывод информации о выбранной таски
 func taskInfomation(id int) {
-	fmt.Printf("ID: %d, Desc: %s, Completed: %t\n", TasksMassive[id].ID, TasksMassive[id].Desc, TasksMassive[id].Completed)
+	fmt.Printf("ID: %s, Desc: %s, Completed: %t\n", TasksMassive[id].ID, TasksMassive[id].Desc, TasksMassive[id].Completed)
 
 }
 
+// Функция вывод информации о всех тасках
 func ALLtaskInfomation() {
 	for i := range TasksMassive {
 		taskInfomation(i)
@@ -66,14 +70,14 @@ func ALLtaskInfomation() {
 }
 
 // Удаление из массива TasksMassive таски, чей uuid указан
-//func deleteTask(id uuid.UUID) {
-//	for i, task := range TasksMassive {
-//		if task.ID == id {
-//			TasksMassive = append(TasksMassive[:i], TasksMassive[i+1:]...)
-//			break
-//		}
-//	}
-//}
+func deleteTask(id uuid.UUID) {
+	for i, task := range TasksMassive {
+		if task.ID == id {
+			TasksMassive = append(TasksMassive[:i], TasksMassive[i+1:]...)
+			break
+		}
+	}
+}
 
 //func main() {
 //
